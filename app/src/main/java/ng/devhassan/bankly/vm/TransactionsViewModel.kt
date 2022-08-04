@@ -1,4 +1,4 @@
-package ng.devhassan.bankly
+package ng.devhassan.bankly.vm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,6 +7,10 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import ng.devhassan.bankly.Transactions
+import ng.devhassan.bankly.model.TFUiState
+import ng.devhassan.bankly.model.Transaction
+import ng.devhassan.bankly.repo.TransactionsRepository
 import javax.inject.Inject
 
 @HiltViewModel

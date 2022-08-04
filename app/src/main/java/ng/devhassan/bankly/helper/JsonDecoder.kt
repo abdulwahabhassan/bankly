@@ -1,9 +1,10 @@
-package ng.devhassan.bankly
+package ng.devhassan.bankly.helper
 
 import android.content.Context
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
+import ng.devhassan.bankly.model.Transaction
 import javax.inject.Inject
 
 class JsonDecoder @Inject constructor(private val context: Context, private val moshi: Moshi) {

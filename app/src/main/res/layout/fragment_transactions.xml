@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".TransactionsFragment">
+    tools:context=".ui.TransactionsFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/transactionsMaterialToolbar"
@@ -142,6 +142,7 @@
             android:fontFamily="@font/roboto_bold"
             android:gravity="center"
             android:text="All"
+            android:textSize="15sp"
             android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@id/allLiner"
             app:layout_constraintEnd_toStartOf="@+id/creditTV"
@@ -169,6 +170,7 @@
             android:text="Credit"
             android:textColor="@color/green"
             android:textStyle="bold"
+            android:textSize="15sp"
             app:layout_constraintBottom_toTopOf="@id/creditLiner"
             app:layout_constraintEnd_toStartOf="@+id/debitTV"
             app:layout_constraintHorizontal_bias="0.5"
@@ -194,6 +196,7 @@
             android:text="Debit"
             android:textColor="@color/red"
             android:textStyle="bold"
+            android:textSize="15sp"
             app:layout_constraintBottom_toTopOf="@+id/creditLiner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

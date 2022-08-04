@@ -1,4 +1,4 @@
-package ng.devhassan.bankly
+package ng.devhassan.bankly.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +15,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Timber.d("Welcome")
     }
 }

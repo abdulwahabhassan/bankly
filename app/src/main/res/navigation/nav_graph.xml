@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/transactionsFragment"
-        android:name="ng.devhassan.bankly.TransactionsFragment"
+        android:name="ng.devhassan.bankly.ui.TransactionsFragment"
         android:label="fragment_transactions"
         tools:layout="@layout/fragment_transactions" />
 </navigation>

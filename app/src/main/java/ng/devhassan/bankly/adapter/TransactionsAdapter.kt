@@ -1,4 +1,4 @@
-package ng.devhassan.bankly
+package ng.devhassan.bankly.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import ng.devhassan.bankly.R
+import ng.devhassan.bankly.helper.Utils
 import ng.devhassan.bankly.databinding.ItemLayoutTransactionBinding
+import ng.devhassan.bankly.model.Transaction
 import timber.log.Timber
 
 class TransactionsAdapter(
@@ -27,7 +30,8 @@ class TransactionsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionHistoryVH {
         //inflate the view to be used by the payment option view holder
-        val binding = ItemLayoutTransactionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemLayoutTransactionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return TransactionHistoryVH(binding, onItemClick = { position ->
             val itemAtPosition = currentList[position]
             this.onItemClicked(position, itemAtPosition)
@@ -43,7 +47,10 @@ class TransactionsAdapter(
     }
 
 
-    inner class TransactionHistoryVH(private val binding: ItemLayoutTransactionBinding, onItemClick: (position: Int) -> Unit) :
+    inner class TransactionHistoryVH(
+        private val binding: ItemLayoutTransactionBinding,
+        onItemClick: (position: Int) -> Unit
+    ) :
         RecyclerView.ViewHolder(binding.root) {
 
         init {

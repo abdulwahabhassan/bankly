@@ -1,4 +1,4 @@
-package ng.devhassan.bankly
+package ng.devhassan.bankly.model
 
 import com.squareup.moshi.Json
 

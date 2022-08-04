@@ -1,4 +1,4 @@
-package ng.devhassan.bankly
+package ng.devhassan.bankly.helper
 
 import android.content.Context
 import android.view.View
@@ -29,11 +29,12 @@ object Utils {
         )
     }
 
-    // used for hiding input keyboard
     fun hideKeyboard(context: Context?, view: View?) {
         if (context != null) {
             val imm =
-                context.applicationContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                context.applicationContext.getSystemService(
+                    Context.INPUT_METHOD_SERVICE
+                ) as InputMethodManager
             if (view != null) {
                 imm.hideSoftInputFromWindow(view.windowToken, 0)
             }

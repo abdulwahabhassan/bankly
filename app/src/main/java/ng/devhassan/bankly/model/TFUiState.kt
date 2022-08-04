@@ -1,4 +1,6 @@
-package ng.devhassan.bankly
+package ng.devhassan.bankly.model
+
+import ng.devhassan.bankly.Transactions
 
 data class TFUiState(
     val transactionType: Transactions,

@@ -1,4 +1,4 @@
-package ng.devhassan.bankly
+package ng.devhassan.bankly.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,8 +12,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
+import ng.devhassan.bankly.*
+import ng.devhassan.bankly.adapter.TransactionsAdapter
 import ng.devhassan.bankly.databinding.BottomSheetTransactionDetailsBinding
 import ng.devhassan.bankly.databinding.FragmentTransactionsBinding
+import ng.devhassan.bankly.helper.Utils
+import ng.devhassan.bankly.model.Transaction
+import ng.devhassan.bankly.vm.TransactionsViewModel
 
 @AndroidEntryPoint
 class TransactionsFragment : Fragment() {
@@ -69,7 +74,7 @@ class TransactionsFragment : Fragment() {
     }
 
     private fun updateSelectedTab(transactionType: Transactions) {
-        when(transactionType) {
+        when (transactionType) {
             Transactions.ALL -> {
                 binding.allLiner.setBackgroundResource(R.color.blue_purple)
                 binding.creditLiner.setBackgroundResource(R.color.white)
@@ -106,7 +111,7 @@ class TransactionsFragment : Fragment() {
         transactionsAdapter = TransactionsAdapter(
             requireContext(),
             onItemClicked = { position: Int, itemAtPosition: Transaction ->
-                if(bottomSheetDialog == null) {
+                if (bottomSheetDialog == null) {
                     showTransactionDetails(itemAtPosition)
                 }
             }
