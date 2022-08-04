@@ -13,10 +13,10 @@ import javax.inject.Inject
 class TransactionsViewModel @Inject constructor(private val transactionsRepository: TransactionsRepository) :
     ViewModel() {
     private var _transactions:
-            MutableLiveData<List<Transaction>> = MutableLiveData(emptyList())
-    val transactions: LiveData<List<Transaction>> = _transactions
+            MutableLiveData<TFUiState> = MutableLiveData(TFUiState(Transactions.ALL, emptyList()))
+    val transactions: LiveData<TFUiState> = _transactions
 
-    private val transactionType = MutableStateFlow(Transactions.ALL)
+    private val _transactionType = MutableStateFlow(Transactions.ALL)
 
     init {
         viewModelScope.launch {
@@ -26,18 +26,29 @@ class TransactionsViewModel @Inject constructor(private val transactionsReposito
 
     private suspend fun retrieveTransactions() {
         combine(
-            transactionType,
+            _transactionType,
             flowOf(transactionsRepository.getTransactions())
         ) { transactionType, transactions ->
             when (transactionType) {
                 Transactions.ALL -> {
-                    transactions
+                    TFUiState(
+                        Transactions.ALL,
+                        transactions
+                    )
                 }
                 Transactions.CREDIT -> {
-                    transactions?.filter { it.isCredit }
+                    TFUiState(
+                        Transactions.CREDIT,
+                        transactions?.filter { it.isCredit }
+                    )
+
                 }
                 Transactions.DEBIT -> {
-                    transactions?.filter { !it.isCredit }
+                    TFUiState(
+                        Transactions.DEBIT,
+                        transactions?.filter { !it.isCredit }
+                    )
+
                 }
             }
         }.collect { transactions ->
@@ -46,15 +57,15 @@ class TransactionsViewModel @Inject constructor(private val transactionsReposito
     }
 
     fun filterByAll() {
-        transactionType.value = Transactions.ALL
+        _transactionType.value = Transactions.ALL
     }
 
     fun filterByCredit() {
-        transactionType.value = Transactions.CREDIT
+        _transactionType.value = Transactions.CREDIT
     }
 
     fun filterByDebit() {
-        transactionType.value = Transactions.DEBIT
+        _transactionType.value = Transactions.DEBIT
     }
 
 }

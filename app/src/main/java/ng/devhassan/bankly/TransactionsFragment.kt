@@ -32,8 +32,29 @@ class TransactionsFragment : Fragment() {
 
         initTransactionsRecyclerViewAdapter()
 
-        viewModel.transactions.observe(viewLifecycleOwner) { transactions ->
-            transactionsAdapter.submitList(transactions)
+        viewModel.transactions.observe(viewLifecycleOwner) { uiState ->
+            transactionsAdapter.submitList(uiState.transactions)
+            updateSelectedTab(uiState.transactionType)
+        }
+    }
+
+    private fun updateSelectedTab(transactionType: Transactions) {
+        when(transactionType) {
+            Transactions.ALL -> {
+                binding.allLiner.setBackgroundResource(R.color.blue_purple)
+                binding.creditLiner.setBackgroundResource(R.color.white)
+                binding.debitLiner.setBackgroundResource(R.color.white)
+            }
+            Transactions.CREDIT -> {
+                binding.creditLiner.setBackgroundResource(R.color.blue_purple)
+                binding.allLiner.setBackgroundResource(R.color.white)
+                binding.debitLiner.setBackgroundResource(R.color.white)
+            }
+            Transactions.DEBIT -> {
+                binding.debitLiner.setBackgroundResource(R.color.blue_purple)
+                binding.allLiner.setBackgroundResource(R.color.white)
+                binding.creditLiner.setBackgroundResource(R.color.white)
+            }
         }
     }
 
