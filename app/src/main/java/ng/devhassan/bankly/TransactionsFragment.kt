@@ -1,6 +1,8 @@
 package ng.devhassan.bankly
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,14 +30,28 @@ class TransactionsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initTransactionsRecyclerViewAdapter()
+
         initClickListeners()
 
-        initTransactionsRecyclerViewAdapter()
+        initSearchViewListener()
 
         viewModel.transactions.observe(viewLifecycleOwner) { uiState ->
             transactionsAdapter.submitList(uiState.transactions)
             updateSelectedTab(uiState.transactionType)
         }
+    }
+
+    private fun initSearchViewListener() {
+        binding.transactionsSearchViewET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                viewModel.filterBySearchQuery(p0.toString())
+            }
+
+            override fun afterTextChanged(p0: Editable?) {}
+        })
     }
 
     private fun updateSelectedTab(transactionType: Transactions) {

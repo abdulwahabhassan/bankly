@@ -18,6 +18,8 @@ class TransactionsViewModel @Inject constructor(private val transactionsReposito
 
     private val _transactionType = MutableStateFlow(Transactions.ALL)
 
+    private val _searchQuery = MutableStateFlow("")
+
     init {
         viewModelScope.launch {
             retrieveTransactions()
@@ -27,26 +29,33 @@ class TransactionsViewModel @Inject constructor(private val transactionsReposito
     private suspend fun retrieveTransactions() {
         combine(
             _transactionType,
-            flowOf(transactionsRepository.getTransactions())
-        ) { transactionType, transactions ->
+            flowOf(transactionsRepository.getTransactions()),
+            _searchQuery
+        ) { transactionType, transactions, searchQuery ->
             when (transactionType) {
                 Transactions.ALL -> {
                     TFUiState(
-                        Transactions.ALL,
-                        transactions
+                        transactionType,
+                        transactions?.filter {
+                            searchFilterPredicate(searchQuery, it)
+                        }
                     )
                 }
                 Transactions.CREDIT -> {
                     TFUiState(
-                        Transactions.CREDIT,
-                        transactions?.filter { it.isCredit }
+                        transactionType,
+                        transactions?.filter { it.isCredit }?.filter {
+                            searchFilterPredicate(searchQuery, it)
+                        }
                     )
 
                 }
                 Transactions.DEBIT -> {
                     TFUiState(
-                        Transactions.DEBIT,
-                        transactions?.filter { !it.isCredit }
+                        transactionType,
+                        transactions?.filter { !it.isCredit }?.filter {
+                            searchFilterPredicate(searchQuery, it)
+                        }
                     )
 
                 }
@@ -66,6 +75,17 @@ class TransactionsViewModel @Inject constructor(private val transactionsReposito
 
     fun filterByDebit() {
         _transactionType.value = Transactions.DEBIT
+    }
+
+    fun filterBySearchQuery(searchQuery: String) {
+        _searchQuery.value = searchQuery
+    }
+
+    private fun searchFilterPredicate(searchQuery: String, transaction: Transaction): Boolean {
+        return transaction.transactionTypeName?.contains(searchQuery, true) == true ||
+                transaction.transactionDate.contains(searchQuery, true) ||
+                transaction.amount.toString().contains(searchQuery, true) ||
+                transaction.statusName?.contains(searchQuery, true) == true
     }
 
 }
