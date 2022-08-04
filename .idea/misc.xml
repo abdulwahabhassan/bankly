@@ -8,15 +8,19 @@
         <entry key="app/src/main/res/drawable/bg_circular.xml" value="0.198" />
         <entry key="app/src/main/res/drawable/bg_filter.xml" value="0.1665" />
         <entry key="app/src/main/res/drawable/bg_rounded_square.xml" value="0.194" />
+        <entry key="app/src/main/res/drawable/bg_rounded_square_credit.xml" value="0.1665" />
         <entry key="app/src/main/res/drawable/bg_search_recycler_view.xml" value="0.194" />
         <entry key="app/src/main/res/drawable/bg_search_view.xml" value="0.198" />
         <entry key="app/src/main/res/drawable/bg_transaction.xml" value="0.194" />
+        <entry key="app/src/main/res/drawable/ic_arrow_credit.xml" value="0.1665" />
+        <entry key="app/src/main/res/drawable/ic_arrow_debit.xml" value="0.1665" />
         <entry key="app/src/main/res/drawable/ic_arrow_outward.xml" value="0.194" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.198" />
         <entry key="app/src/main/res/drawable/ic_filter.xml" value="0.1665" />
         <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.198" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.1665" />
         <entry key="app/src/main/res/font/roboto.xml" value="0.22708333333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
         <entry key="app/src/main/res/layout/fragment_transactions.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_layout_search_suggestion.xml" value="0.23489583333333333" />
         <entry key="app/src/main/res/layout/item_layout_search_suggestions.xml" value="0.1859375" />

@@ -11,7 +11,7 @@
     <style name="imageview_shape_appearance_overlay_rounded_edges_50_percent" parent="">
         <item name="cornerSize">50%</item>
     </style>
-<!--    Customize color of navigation back arrow-->
+    <!-- Customize color of navigation back arrow-->
     <style name="custom_toolbar_theme" >
         <item name="colorControlNormal">@color/black</item>
     </style>
@@ -25,5 +25,11 @@
     <style name="app_bottom_sheet_modal_style"
         parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bg_bottom_sheet</item>
+    </style>
+    <!--    override tab layout tab text size-->
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

@@ -8,19 +8,18 @@
     android:background="@drawable/bg_transaction">
 
     <ImageView
-        android:id="@+id/transactionIV"
+        android:id="@+id/transactionTypeIV"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginVertical="16dp"
         android:layout_marginStart="16dp"
-        android:background="@drawable/bg_rounded_square"
+        tools:background="@drawable/bg_rounded_square_debit"
         app:cornerRadius="24dp"
         android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_arrow_outward"
-        app:tint="@color/red" />
+        tools:srcCompat="@drawable/ic_arrow_debit" />
 
     <TextView
         android:id="@+id/transactionTitleTV"
@@ -29,14 +28,15 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="16dp"
         android:ellipsize="end"
+        android:textStyle="bold"
         android:fontFamily="@font/roboto_bold"
         android:maxLines="1"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/transactionIV"
+        app:layout_constraintBottom_toBottomOf="@+id/transactionTypeIV"
         app:layout_constraintEnd_toStartOf="@+id/transactionAmountTV"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/transactionIV"
+        app:layout_constraintStart_toEndOf="@+id/transactionTypeIV"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Loan Repayment" />
 
@@ -51,7 +51,7 @@
         android:maxLines="1"
         app:layout_constraintEnd_toStartOf="@+id/transactionStatusTV"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/transactionIV"
+        app:layout_constraintStart_toEndOf="@+id/transactionTypeIV"
         app:layout_constraintStart_toStartOf="@+id/transactionTitleTV"
         app:layout_constraintTop_toBottomOf="@+id/transactionTitleTV"
         tools:text="23, Apr 2022, 12:00:32 PM" />
@@ -63,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:ellipsize="end"
+        android:textStyle="bold"
         android:fontFamily="@font/roboto_bold"
         android:maxLines="1"
         android:textAlignment="viewEnd"
