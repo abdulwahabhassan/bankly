@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import ng.devhassan.bankly.*
@@ -94,6 +96,10 @@ class TransactionsFragment : Fragment() {
     }
 
     private fun initClickListeners() {
+        binding.backArrowIB.setOnClickListener {
+            activity?.finish()
+        }
+
         binding.allTV.setOnClickListener {
             viewModel.filterByAll()
         }
