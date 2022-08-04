@@ -21,6 +21,7 @@
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.1665" />
         <entry key="app/src/main/res/font/roboto.xml" value="0.22708333333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
+        <entry key="app/src/main/res/layout/bottom_sheet_transaction_details.xml" value="0.27239583333333334" />
         <entry key="app/src/main/res/layout/fragment_transactions.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_layout_search_suggestion.xml" value="0.23489583333333333" />
         <entry key="app/src/main/res/layout/item_layout_search_suggestions.xml" value="0.1859375" />

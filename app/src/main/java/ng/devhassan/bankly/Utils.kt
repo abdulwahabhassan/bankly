@@ -1,5 +1,8 @@
 package ng.devhassan.bankly
 
+import android.content.Context
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -24,5 +27,16 @@ object Utils {
                 date.replace('T', ' ').substringBefore('.')
             ) ?: ""
         )
+    }
+
+    // used for hiding input keyboard
+    fun hideKeyboard(context: Context?, view: View?) {
+        if (context != null) {
+            val imm =
+                context.applicationContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            if (view != null) {
+                imm.hideSoftInputFromWindow(view.windowToken, 0)
+            }
+        }
     }
 }

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transactionDetailSheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:context=".ui.screens.TransactionDetailActivity">
+
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Transaction Date"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/dateTV"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dateTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="14sp"
+                android:gravity="end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/dateText"
+                app:layout_constraintTop_toTopOf="@+id/dateText"
+                tools:text="Saturday, 31 August 2020" />
+
+            <TextView
+                android:id="@+id/senderNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Sender"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/senderNameTV"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/dateText"
+                app:layout_constraintTop_toBottomOf="@+id/dateText" />
+
+            <TextView
+                android:id="@+id/senderNameTV"
+                android:layout_width="0dp"
+                android:gravity="end"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintBottom_toBottomOf="@+id/senderNameText"
+                app:layout_constraintEnd_toEndOf="@+id/dateTV"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/senderNameText"
+                app:layout_constraintTop_toTopOf="@+id/senderNameText"
+                tools:text="Nonso Nonso" />
+
+            <TextView
+                android:id="@+id/receiverNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Receiver"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/receiverNameTV"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/senderNameText"
+                app:layout_constraintTop_toBottomOf="@+id/senderNameText" />
+
+            <TextView
+                android:id="@+id/receiverNameTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/roboto_medium"
+                android:textAllCaps="true"
+                android:gravity="end"
+                app:layout_constraintBottom_toBottomOf="@+id/receiverNameText"
+                app:layout_constraintEnd_toEndOf="@+id/senderNameTV"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/receiverNameText"
+                app:layout_constraintTop_toTopOf="@+id/receiverNameText"
+                tools:text="Station" />
+
+            <TextView
+                android:id="@+id/terminalId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/receiverNameTV"
+                app:layout_constraintTop_toBottomOf="@+id/receiverNameTV"
+                tools:text="20580T65" />
+
+            <TextView
+                android:id="@+id/referenceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Reference"
+                android:textColor="@color/black"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/referenceTV"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/amountText"
+                app:layout_constraintTop_toBottomOf="@+id/amountText"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/referenceTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="end"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/amountTV"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/referenceText"
+                app:layout_constraintTop_toTopOf="@+id/referenceText"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="volume" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/amountText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Amount"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/amountTV"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/transactionTypeNameText"
+                app:layout_constraintTop_toBottomOf="@+id/transactionTypeNameText" />
+
+            <TextView
+                android:id="@+id/amountTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="end"
+                app:layout_constraintBottom_toBottomOf="@+id/amountText"
+                app:layout_constraintEnd_toEndOf="@+id/transactionTypeNameTV"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/amountText"
+                app:layout_constraintTop_toTopOf="@+id/amountText"
+                tools:text="23" />
+
+
+            <TextView
+                android:id="@+id/transactionTypeNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Type"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/transactionTypeNameTV"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/receiverNameText"
+                app:layout_constraintTop_toBottomOf="@+id/receiverNameText" />
+
+            <TextView
+                android:id="@+id/transactionTypeNameTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="end"
+                app:layout_constraintBottom_toBottomOf="@+id/transactionTypeNameText"
+                app:layout_constraintEnd_toEndOf="@+id/receiverNameTV"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/transactionTypeNameText"
+                app:layout_constraintTop_toTopOf="@+id/transactionTypeNameText"
+                tools:text="1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
